@@ -15,13 +15,8 @@
    );
    document.querySelector('#checkout').addEventListener('click', () => {
       stripe.redirectToCheckout({
-         lineItems: [
-            {
-               price: "price_1OS4OuEixHlr2hL8B99650dw",
-               quantity: 1,
-            },
-         ],
-         mode: "subscription",
+         mode: "one-time",
+         price: "price_1OS5B7EixHlr2hL8lG7StZEn",
          successUrl: "https://www.google.com/",
          cancelUrl: "https://g1.globo.com/"
       }).then((result) => {
