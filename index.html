@@ -16,7 +16,12 @@
    document.querySelector('#checkout').addEventListener('click', () => {
       stripe.redirectToCheckout({
          mode: "one-time",
-         price: "price_1OS5B7EixHlr2hL8lG7StZEn",
+         lineItems: [
+            {
+            price: "price_1OS5B7EixHlr2hL8lG7StZEn",
+            quantity: 1
+            },
+         ],
          successUrl: "https://www.google.com/",
          cancelUrl: "https://g1.globo.com/"
       }).then((result) => {
