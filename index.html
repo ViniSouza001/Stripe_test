@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Stripe test</title>
+   <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+   <button id="checkout">Checkout</button>
+</body>
+<script>
+   var stripe = Stripe(
+      "pk_test_51OS4DvEixHlr2hL8ZnrQkDqsdVOnu46r76c6yqZ0vY4oArNtW343R8QpfeUY23VmqJarHoQ3Xgqnn8vpRulZaXrS00qoXK0naL"
+   );
+   document.querySelector('#checkout').addEventListener('click', () => {
+      stripe.redirectToCheckout({
+         lineItems: [
+            {
+               price: "price_1OS4OuEixHlr2hL8B99650dw",
+               quantity: 1,
+            },
+         ],
+         mode: "subscription",
+         successUrl: "https://www.google.com/",
+         cancelUrl: "https://g1.globo.com/"
+      }).then((result) => {
+         alert(result);
+      })
+   })
+</script>
+</html>
