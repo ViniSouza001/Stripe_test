@@ -15,7 +15,7 @@
    );
    document.querySelector('#checkout').addEventListener('click', () => {
       stripe.redirectToCheckout({
-         mode: "one-time",
+         mode: "payment",
          lineItems: [
             {
             price: "price_1OS5B7EixHlr2hL8lG7StZEn",
